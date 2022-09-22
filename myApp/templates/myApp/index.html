@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My App Home Page</title>
+    <link rel="stylesheet" href="{% static 'myApp/CSS/style.css' %}">
+</head>
+<body>
+
+<h1>{{ name | upper }}, Welcome to my app</h1>
+<p>{{ text | truncatewords:10 }}</p>
+<a href="{%  url 'myApp:about' %}">Go to about page</a>
+
+    <ul>
+    {% for num in name %}
+    <li style="background: {% cycle 'red' 'yellow' %}">{{  num }}</li>
+        {% endfor %}
+
+    {% if name.0 == 1 %}
+    <p> Hello </p>
+    </ul>
+    {% endif %}
+</body>
+</html>
